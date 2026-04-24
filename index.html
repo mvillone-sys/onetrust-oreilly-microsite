@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OneTrust × O'Reilly | Content Evaluation Results</title>
+<link rel="stylesheet" href="https://cdn.oreillystatic.com/assets/css/2025_font_face.css">
+<style>
+  :root {
+    --red: #E8002D;
+    --dark: #0D1117;
+    --dark2: #161B22;
+    --dark3: #1C2330;
+    --white: #FFFFFF;
+    --gray: #4A5568;
+    --light: #F7F8FA;
+    --rule: #E2E8F0;
+    --red-pale: #FFF5F5;
+    --red-border: #FED7D7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'guardian-text-oreilly', Helvetica, sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(13,17,23,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-brand .oreilly-logo {
+    height: 22px;
+    width: auto;
+    display: block;
+  }
+
+  .nav-brand .nav-x {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.3);
+    line-height: 1;
+  }
+
+  .nav-brand .onetrust-logo {
+    height: 18px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(232,0,45,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--red), transparent);
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .hero-meta {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-meta strong { color: rgba(255,255,255,0.7); }
+
+  .hero-quote {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    padding-left: 1.2rem;
+    border-left: 2px solid var(--red);
+    max-width: 520px;
+  }
+
+  .hero-quote cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    font-style: normal;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+
+  /* ROI card */
+  .roi-hero-card {
+    background: var(--dark2);
+    border: 1px solid rgba(232,0,45,0.25);
+    border-radius: 2px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .roi-hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+  }
+
+  .roi-big {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 5.5rem;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .roi-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.5rem;
+  }
+
+  .roi-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  .roi-sub strong { color: rgba(255,255,255,0.75); display: block; margin-bottom: 0.2rem; }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 6rem 3rem; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── STATS ── */
+  .stats-section { background: var(--dark); }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 1px;
+  }
+
+  .stat-cell {
+    background: var(--dark2);
+    padding: 2rem 1.5rem;
+    position: relative;
+  }
+
+  .stat-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .stat-cell:hover::before { transform: scaleX(1); }
+
+  .stat-num {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── SKILLS ── */
+  .skills-section { background: var(--dark2); }
+
+  .skills-chart { margin-top: 2rem; }
+
+  .skill-bar-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 32px;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .skill-name {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    text-align: right;
+  }
+
+  .skill-bar-track {
+    background: rgba(255,255,255,0.05);
+    height: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    position: absolute;
+    left: 0; top: 0;
+    animation: grow 1s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  @keyframes grow { to { transform: scaleX(1); } }
+
+  .skill-bar-fill.data { background: var(--red); }
+  .skill-bar-fill.software { background: #3182CE; }
+  .skill-bar-fill.ops { background: #38A169; }
+
+  .skill-val {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .skills-legend {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ── SURVEY ── */
+  .survey-section { background: var(--dark); }
+
+  .survey-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.05);
+    margin-bottom: 3rem;
+  }
+
+  .survey-stat {
+    background: var(--dark2);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .survey-pct {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 2.8rem;
+    color: var(--red);
+    line-height: 1;
+    min-width: 90px;
+  }
+
+  .survey-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+  }
+
+  .quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .quote-card {
+    background: var(--dark2);
+    border-left: 2px solid var(--red);
+    padding: 1.5rem;
+  }
+
+  .quote-card p {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+
+  /* ── ROI SECTION ── */
+  .roi-section { background: var(--dark2); }
+
+  .roi-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .roi-calc-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 1rem;
+  }
+
+  .roi-calc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9rem;
+  }
+
+  .roi-calc-row:last-child { border-bottom: none; }
+
+  .roi-calc-label { color: rgba(255,255,255,0.5); }
+  .roi-calc-val { font-weight: 600; color: var(--white); }
+
+  .roi-table-wrapper { overflow: hidden; }
+
+  .roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+
+  .roi-table th {
+    background: var(--dark3);
+    padding: 1rem 1.2rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .roi-table th:last-child { text-align: right; }
+
+  .roi-table td {
+    padding: 1.1rem 1.2rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.7);
+  }
+
+  .roi-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .roi-table tr.total-row td {
+    background: var(--red);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    border-bottom: none;
+  }
+
+  .roi-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--dark);
+    border: 1px solid rgba(232,0,45,0.3);
+    padding: 2rem 2.5rem;
+    margin-top: 1rem;
+  }
+
+  .roi-callout-left {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 2rem;
+    color: var(--white);
+  }
+
+  .roi-callout-left span { color: var(--red); }
+
+  .roi-callout-right {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    text-align: right;
+  }
+
+  .roi-callout-right strong {
+    display: block;
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ── CONTENT SPOTLIGHT ── */
+  .content-section { background: var(--dark); }
+
+  .content-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .content-card {
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 2.5rem;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+
+  .content-card:hover {
+    border-color: rgba(232,0,45,0.4);
+    transform: translateY(-3px);
+  }
+
+  .content-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .content-type {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.8rem;
+  }
+
+  .content-card h3 {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+
+  .content-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.7rem;
+    background: rgba(232,0,45,0.1);
+    border: 1px solid rgba(232,0,45,0.2);
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.04em;
+  }
+
+  .content-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: 0.05em;
+  }
+
+  .content-link::after { content: '→'; }
+
+  /* ── ENTERPRISE SECTION ── */
+  .enterprise-section { background: var(--dark2); }
+
+  .persona-rows { display: flex; flex-direction: column; gap: 1px; }
+
+  .persona-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .persona-left {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .persona-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+
+  .persona-role {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  .persona-count {
+    margin-top: 0.4rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .persona-right {
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  /* ── NEXT STEPS ── */
+  .nextsteps-section { background: var(--dark); }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.05);
+    margin-top: 2rem;
+  }
+
+  .step-card {
+    background: var(--dark2);
+    padding: 2.5rem 2rem;
+  }
+
+  .step-num {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 3rem;
+    color: rgba(232,0,45,0.25);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+  }
+
+  .step-body {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer-brand .oreilly-logo {
+    height: 26px;
+    width: auto;
+    display: block;
+  }
+
+  .footer-brand .nav-x {
+    font-family: 'guardian-oreilly', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.3);
+    line-height: 1;
+  }
+
+  .footer-brand .onetrust-logo {
+    height: 20px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-contact {
+    text-align: right;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+
+  .footer-contact strong { color: rgba(255,255,255,0.75); display: block; }
+
+  /* ── DIVIDER ── */
+  .red-rule {
+    height: 1px;
+    background: linear-gradient(90deg, var(--red), transparent);
+    margin-bottom: 3rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .roi-hero-card { display: none; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .survey-grid, .quotes-grid, .content-cards, .steps-grid { grid-template-columns: 1fr; }
+    .roi-intro { grid-template-columns: 1fr; }
+    .persona-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-contact { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" alt="O'Reilly" class="oreilly-logo">
+    <span class="nav-x">×</span>
+    <img src="https://www.onetrust.com/content/dam/onetrust/brand/elements/image/digital/logo/ot_logo_lockup_black_nav.svg" alt="OneTrust" class="onetrust-logo">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#results">Results</a></li>
+    <li><a href="#survey">Survey</a></li>
+    <li><a href="#roi">ROI</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#next">Next Steps</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Content Evaluation Results · April 2026</p>
+      <h1>Your team proved the<br><em>platform works.</em><br>Now let's scale it.</h1>
+      <p class="hero-meta">
+        <strong>Trial Window:</strong> March 27 – April 22, 2026 &nbsp;|&nbsp;
+        <strong>Participants:</strong> 27 &nbsp;|&nbsp;
+        <strong>Active Learners:</strong> 13
+      </p>
+      <blockquote class="hero-quote">
+        "O'Reilly directly impacted my work by improving how I approach problem-solving and design for complex data and automation workflows."
+        <cite>— OneTrust trial participant</cite>
+      </blockquote>
+    </div>
+    <div class="roi-hero-card">
+      <div class="roi-big">7x</div>
+      <div class="roi-label">Conservative ROI</div>
+      <div class="roi-sub">
+        <strong>If only 50% of paid seats saved time</strong>
+        $1,630,300 in annual value at minimum<br><br>
+        Full model: 12x · $2,942,800 value<br>
+        vs $237,244.00 investment · 700 seats · 2,000 with access
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section" id="results">
+  <div class="section-inner">
+    <p class="section-eyebrow">Trial Engagement</p>
+    <h2 class="section-title">What happened in 30 days.</h2>
+    <p class="section-sub">Voluntary engagement. No mandate. Your people showed up on their own.</p>
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num">2,556</div>
+        <div class="stat-label">Units Viewed</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">48%</div>
+        <div class="stat-label">Activation Rate</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">60</div>
+        <div class="stat-label">Distinct Titles</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">31</div>
+        <div class="stat-label">Skills Explored</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Live Event Attendances</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Questions via Answers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Content Map</p>
+    <h2 class="section-title">The content matched where you're headed.</h2>
+    <p class="section-sub">Gen AI, data engineering, and software architecture dominated — exactly the skills behind your Copilot rollout and thought-partner transformation.</p>
+    <div class="skills-chart">
+      <div class="skill-bar-row">
+        <div class="skill-name">Agile</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill software" style="width:100%; animation-delay:0.1s"></div></div>
+        <div class="skill-val">9</div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-name">Generative AI</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill data" style="width:100%; animation-delay:0.15s"></div></div>
+        <div class="skill-val">9</div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-name">AI</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill data" style="width:44%; animation-delay:0.2s"></div></div>
+        <div class="skill-val">4</div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-name">AWS Certifications</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill ops" style="width:33%; animation-delay:0.25s"></div></div>
+        <div class="skill-val">3</div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-name">Software Architecture</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill software" style="width:33%; animation-delay:0.3s"></div></div>
+        <div class="skill-val">3</div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-name">Python</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill software" style="width:22%; animation-delay:0.35s"></div></div>
+        <div class="skill-val">2</div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-name">Snowflake</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill data" style="width:22%; animation-delay:0.4s"></div></div>
+        <div class="skill-val">2</div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-name">Design Patterns</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill software" style="width:22%; animation-delay:0.45s"></div></div>
+        <div class="skill-val">2</div>
+      </div>
+    </div>
+    <div class="skills-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#E8002D"></div> Data & AI</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#3182CE"></div> Software Development</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#38A169"></div> IT Operations</div>
+    </div>
+  </div>
+</section>
+
+<!-- SURVEY -->
+<section class="survey-section" id="survey">
+  <div class="section-inner">
+    <p class="section-eyebrow">Survey Results</p>
+    <h2 class="section-title">100% would recommend O'Reilly to their company.</h2>
+    <p class="section-sub">10 responses. Not a single no.</p>
+    <div class="survey-grid">
+      <div class="survey-stat">
+        <div class="survey-pct">100%</div>
+        <div class="survey-desc">Would recommend O'Reilly access to their company</div>
+      </div>
+      <div class="survey-stat">
+        <div class="survey-pct">80%</div>
+        <div class="survey-desc">Found content relevant to their role</div>
+      </div>
+      <div class="survey-stat">
+        <div class="survey-pct">80%</div>
+        <div class="survey-desc">Found content engaging and easy to follow</div>
+      </div>
+      <div class="survey-stat">
+        <div class="survey-pct">90%</div>
+        <div class="survey-desc">Said format variety made learning more effective</div>
+      </div>
+    </div>
+    <div class="red-rule"></div>
+    <p class="section-eyebrow">In their own words</p>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <p>"O'Reilly directly impacted my work by improving how I approach problem-solving and design for complex data and automation workflows."</p>
+      </div>
+      <div class="quote-card">
+        <p>"Enhanced my abilities on LangGraph and semantic modelling in DataLakehouses."</p>
+      </div>
+      <div class="quote-card">
+        <p>"Loved the variety — books, full course demos, AI chat."</p>
+      </div>
+      <div class="quote-card">
+        <p>"Helped me get into architecture-level content and certifications."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="roi-section" id="roi">
+  <div class="section-inner">
+    <p class="section-eyebrow">Cost Saving Analysis</p>
+    <h2 class="section-title">The business case, built from your own data.</h2>
+    <p class="section-sub">Using OneTrust's average salary of $150,000 and time-saved data from your trial participants.</p>
+
+    <div class="roi-intro">
+      <div>
+        <p class="roi-calc-title">Salary Basis</p>
+        <div class="roi-calc-row">
+          <span class="roi-calc-label">Annual salary (OneTrust avg)</span>
+          <span class="roi-calc-val">$150,000</span>
+        </div>
+        <div class="roi-calc-row">
+          <span class="roi-calc-label">Monthly salary</span>
+          <span class="roi-calc-val">$12,500</span>
+        </div>
+        <div class="roi-calc-row">
+          <span class="roi-calc-label">Hours per month</span>
+          <span class="roi-calc-val">160 hours</span>
+        </div>
+        <div class="roi-calc-row">
+          <span class="roi-calc-label">Hourly rate</span>
+          <span class="roi-calc-val">$78.13/hr</span>
+        </div>
+      </div>
+      <div>
+        <p class="roi-calc-title">Time Saved from Trial</p>
+        <div class="roi-calc-row">
+          <span class="roi-calc-label">Trial users who saved time</span>
+          <span class="roi-calc-val">55.6%</span>
+        </div>
+        <div class="roi-calc-row">
+          <span class="roi-calc-label">Conservative weekly savings</span>
+          <span class="roi-calc-val">1 hr/week</span>
+        </div>
+        <div class="roi-calc-row">
+          <span class="roi-calc-label">Monthly savings per user</span>
+          <span class="roi-calc-val">4 hours</span>
+        </div>
+        <div class="roi-calc-row">
+          <span class="roi-calc-label">Annual value per person</span>
+          <span class="roi-calc-val">$3,750</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roi-table-wrapper">
+      <table class="roi-table">
+        <thead>
+          <tr>
+            <th>Value Category</th>
+            <th>Calculation (Full 700 Seats)</th>
+            <th>Annual Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Time Saved (productivity)</td>
+            <td>700 users × 4 hrs/mo × $78.13 × 12 months</td>
+            <td>$2,625,000</td>
+          </tr>
+          <tr>
+            <td>Live Events Equivalent</td>
+            <td>378 events × $500 per event</td>
+            <td>$189,000</td>
+          </tr>
+          <tr>
+            <td>Content Library Access</td>
+            <td>3,220 titles × $40 per title</td>
+            <td>$128,800</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total Annual Value</td>
+            <td></td>
+            <td>$2,942,800</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="roi-callout">
+      <div class="roi-callout-left"><span>7x</span> Conservative ROI</div>
+      <div class="roi-callout-right">
+        <strong>If only 50% of paid seats saved time: $1,630,300</strong>
+        Full model: 12x · $2,942,800 value vs $237,244.00 investment
+      </div>
+    </div>
+
+    <div style="margin-top:1rem; padding:1.2rem 1.5rem; background:var(--dark3); border-left:2px solid var(--red); font-size:0.9rem; color:rgba(255,255,255,0.5); font-style:italic; line-height:1.6;">
+      At $118.62 effective cost per user, that's less than most people spend on a single technical book — for a full year of access to the entire O'Reilly platform for all 2,000 employees.
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT SPOTLIGHT -->
+<section class="content-section" id="content">
+  <div class="section-inner">
+    <p class="section-eyebrow">What's on the Platform</p>
+    <h2 class="section-title">Content built for exactly where your team is going.</h2>
+    <p class="section-sub">Two resources your data and engineering teams can access from day one of an enterprise subscription.</p>
+    <div class="content-cards">
+      <a href="https://learning.oreilly.com/live-events/data-design-patterns-for-gen-ai/0642572315269/" target="_blank" class="content-card">
+        <p class="content-type">Live Event · Intermediate</p>
+        <h3>Data Design Patterns for Gen AI</h3>
+        <p>Structure and optimize information for retrieval by GenAI systems. Covers chunking strategies, indexing trade-offs, metadata design, and diagnosing retrieval failures in production RAG pipelines. Taught by practitioner Vasco Patrício in a 4-hour interactive session with real-world design exercises.</p>
+        <div class="content-tags">
+          <span class="tag">Gen AI</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Data Engineering</span>
+          <span class="tag">Architecture</span>
+        </div>
+        <span class="content-link">View live event</span>
+      </a>
+      <a href="https://learning.oreilly.com/library/view/vector-databases/9781098177584/" target="_blank" class="content-card">
+        <p class="content-type">Book · April 2026 · Intermediate–Advanced</p>
+        <h3>Vector Databases</h3>
+        <p>The complete foundation for working with vector databases, embeddings, and LLMs — from Word2Vec to building production RAG applications with PostgreSQL and SQLite. Directly relevant to the LangGraph and semantic modelling work your team is already doing.</p>
+        <div class="content-tags">
+          <span class="tag">Vector Databases</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Python</span>
+        </div>
+        <span class="content-link">Read the book</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ENTERPRISE FIT -->
+<section class="enterprise-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Enterprise Fit</p>
+    <h2 class="section-title">One platform. Every role at OneTrust.</h2>
+    <p class="section-sub">2,000 employees. 9 countries. The platform scales to all of them — and maps directly into Workday Learning for verifiable skill progression.</p>
+    <div class="persona-rows">
+      <div class="persona-row">
+        <div class="persona-left">
+          <div class="persona-tag">Building Skills</div>
+          <div class="persona-role">R&D and Technical Teams</div>
+          <div class="persona-count">~1,200 employees</div>
+        </div>
+        <div class="persona-right">
+          Deep technical content, Gen AI architecture, live events, hands-on labs, and O'Reilly Answers for vetted, hallucination-free code assistance. The highest-engagement group in your trial — they went in immediately and went deep. Directly addresses the LangGraph, agentic coding, and data automation work your team is already doing.
+        </div>
+      </div>
+      <div class="persona-row">
+        <div class="persona-left">
+          <div class="persona-tag">New to AI</div>
+          <div class="persona-role">Business & Operations</div>
+          <div class="persona-count">~800 employees</div>
+        </div>
+        <div class="persona-right">
+          Foundational AI literacy, Microsoft Copilot training, productivity tracks, and beginner learning paths. Reduces reliance on colleagues for basic questions and supports the Copilot rollout across the organization. Skills map directly into Workday for career progression tracking.
+        </div>
+      </div>
+      <div class="persona-row">
+        <div class="persona-left">
+          <div class="persona-tag">Already Expert</div>
+          <div class="persona-role">Leadership & Champions</div>
+          <div class="persona-count">Across all teams</div>
+        </div>
+        <div class="persona-right">
+          AI for Leaders, Management Academy, and skill-strategy tracks aligned to the career pathing goals Kim described. The O'Reilly skills API maps content directly to Workday roles — so leaders can assign, verify, and track skill progression across the org without building it from scratch.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="nextsteps-section" id="next">
+  <div class="section-inner">
+    <p class="section-eyebrow">What Comes Next</p>
+    <h2 class="section-title">The path forward.</h2>
+    <p class="section-sub">Three steps from today to a live enterprise partnership.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Review the ROI together</div>
+        <div class="step-body">Meagan, Carissa, and Kim review the ROI data before bringing it to Tracy, making sure everything is crisp and the story is tight for the People Experience Development conversation.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Bring Tracy into the conversation</div>
+        <div class="step-body">Schedule a call with Tracy from the People Experience Development team. Walk through the eval results, ROI, and the Workday integration — securing sign-off from the right stakeholder early.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Launch the enterprise subscription</div>
+        <div class="step-body">760 paid seats, full access for all 2,000 employees, dedicated Customer Success team, and Workday skills mapping from day one. The foundation for the skill strategy OneTrust is building.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg" alt="O'Reilly" class="oreilly-logo">
+    <span class="nav-x">×</span>
+    <img src="https://www.onetrust.com/content/dam/onetrust/brand/elements/image/digital/logo/ot_logo_lockup_black_nav.svg" alt="OneTrust" class="onetrust-logo">
+  </div>
+  <div class="footer-contact">
+    <strong>Meagan Villone</strong>
+    Enterprise Account Executive · O'Reilly Media<br>
+    mvillone@oreilly.com · 207.272.5326
+  </div>
+</footer>
+
+</body>
+</html>
